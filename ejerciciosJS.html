@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejercicios JS</title>
+
+
+    <!-- Ejercicio A -->
+    <script type="text/javascript">
+        let calcularComision = function(){
+            let ventas = parseFloat(document.getElementById('inputVentas').value);
+            let result = "";
+            if( ventas >=0 && ventas <= 150){
+                result = "Ud no recibe comisión";
+            }else if(ventas > 150 && ventas <= 400){
+                result =  (ventas * 0.10);
+            }else if(ventas > 400){
+                result = 50 + (ventas * 0.09)
+            }else{
+                alert("Ingrese una cantidad  válida");
+            }
+
+            document.getElementById('resultado').value = result;
+        }
+    </script>
+
+    <!-- Ejercicio B -->
+    <script type="text/javascript">
+        let verificar = function(){
+            let numero = document.getElementById("numero").value;
+            let tipo = (numero % 2) ? "El número es Impar":"El número es Par";
+            console.log(tipo);
+            document.getElementById("resultado2").innerHTML += tipo;
+        }
+    </script>
+
+    <!-- Ejercicio C -->
+    <script type="text/javascript">
+        let verificarDigitos = function(){
+            let numero = document.getElementById("numeroDigito").value;
+            let listNumero = numero.split("");
+            console.log(listNumero);
+            let digitos = listNumero.length;
+            console.log(digitos);
+            let sumaPar =0;
+            let sumaImpar = 0;
+            for(let i = 0; i < listNumero.length; i++){
+                n = parseInt(listNumero[i]);
+                
+                if(n % 2){
+                    sumaImpar += n;
+                }else{
+                    sumaPar += n;
+                }
+            }
+
+        console.log(sumaImpar);
+        console.log(sumaPar);
+
+        document.getElementById("resultado3").innerHTML += "Dígitos: " + digitos + " Suma de números impares: " + sumaImpar + "  Suma de números pares: " + sumaPar ;
+            
+        }
+    </script>
+
+    <!-- Ejercicio D -->
+    <script type="text/javascript">
+        
+        let multiplos= [];
+        let i = 0;
+        let limit = false;
+        /*
+        while(i<= 50){
+            m = 0+7
+            multiplos.push(m);
+        }
+
+        console.log(multiplos);*/
+
+
+        //document.getElementById("multiplos").innerHTML += data;
+
+    </script>
+
+</head>
+<body>
+    
+    <form>
+    <h4>Calculo de comisión</h4>
+        <p>Ingrese en total de ventas: <input type="text" id="inputVentas" size="20"></p>
+        <p><input type="button" value="Calcular" onClick="calcularComision()"></p>
+        <p>Su comisión es S/. <input type="text" id="resultado" disabled="disabled"></p>
+
+    </form>
+    <hr>
+
+    <form>
+        <h4>Verificar un número par o impar</h4>
+        <p>Ingrese un número entero: <input type="text" id="numero" size="20"></p>
+        <p><input type="button" value="Verificar" onClick="verificar()"></p>
+        <p id="resultado2"> </p>
+
+    </form>
+
+    <hr>
+
+    <form>
+        <h4>Verificar dígitos</h4>
+        <p>Ingrese un número: <input type="text" id="numeroDigito" size="20"></p>
+        <p><input type="button" value="Verificar" onClick="verificarDigitos()"></p>
+        <p id="resultado3"> </p>
+
+    </form>
+
+    <hr>
+
+    <h4>Números pares múltiplos de 7, pero no múltiplos de 2, 3 o 5</h4>
+    <p id="multiplos"></p>
+
+</body>
+</html>
